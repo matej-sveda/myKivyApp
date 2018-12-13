@@ -1,34 +1,55 @@
 #:kivy 1.10.1
+<ExitButton@Button>
+    size_hint: .1, .1
+    pos_hint: {"x" : .9, "top" : .1}
+    text: "EXIT"
+    on_press: app.exit()
+    background_color: 1, 0, 0, 1
+
 <MainWidget>:
 
-    BoxLayout:
+    FloatLayout:
         size: root.size
-        orientation: "vertical"
+        orientation: "horizontal"
+        canvas:
+            Color:
+                rgb: .132, .232, .249
+            Rectangle:
+                size: self.size
+                pos: self.pos
 
         TabbedPanel:
             do_default_tab: False
 
             TabbedPanelItem:
+                size_hint: .1, .1
                 text: "1st Tab"
-                BoxLayout:
-                    spacing: 50
+                FloatLayout:
+                    spacing: 10
                     padding: 10
-                    Button:
-                        text: "Strana 1a"
-                    Button:
-                        text: "Strana 1b"
+                    ExitButton
 
             TabbedPanelItem:
                 text: "2nd Tab"
-                Label:
-                    text: "Strana 2"
+                FloatLayout:
+                    spacing: 10
+                    padding: 10
+                    ExitButton
+
 
             TabbedPanelItem:
                 text: "3rd Tab"
-                Label:
-                    text: "Strana 3"
+                FloatLayout:
+                    spacing: 10
+                    padding: 10
+                    ExitButton
+
 
             TabbedPanelItem:
                 text: "4th Tab"
-                Label:
-                    text: "Strana 4"
+                FloatLayout:
+                    spacing: 10
+                    padding: 10
+                    ExitButton
+
+
