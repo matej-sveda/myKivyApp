@@ -2,9 +2,17 @@
 <ExitButton@Button>
     size_hint: .1, .1
     pos_hint: {"x" : .9, "top" : .1}
-    text: "EXIT"
     on_press: app.exit()
+    text: "EXIT"
     background_color: 1, 0, 0, 1
+
+<Label1@Label>
+    font_size: self.height
+    size_hint: (1, 0.07)
+
+<Label2@Label>
+    font_size: self.height
+    size_hint: (1, 0.03)
 
 <MainWidget>:
 
@@ -13,24 +21,25 @@
         orientation: "horizontal"
         canvas:
             Color:
-                rgb: .132, .232, .249
+                rgb: .132, .232, .259      #Tabbed panel background
             Rectangle:
                 size: self.size
-                pos: self.pos
 
         TabbedPanel:
             do_default_tab: False
+            background_color: (.132, .232, .259)  #Content background
+            background_image: ''
 
             TabbedPanelItem:
-                size_hint: .1, .1
-                text: "1st Tab"
+                text: "About"
                 FloatLayout:
                     spacing: 10
                     padding: 10
                     ExitButton
 
+
             TabbedPanelItem:
-                text: "2nd Tab"
+                text: "Experience"
                 FloatLayout:
                     spacing: 10
                     padding: 10
@@ -46,10 +55,42 @@
 
 
             TabbedPanelItem:
-                text: "4th Tab"
+                text: "Contact"
                 FloatLayout:
                     spacing: 10
                     padding: 10
+                    Label1:
+                        text: "CONTACT ME"
+                        pos_hint: {"center_x" : .18, "center_y" : .9}
+
+                    Label2:
+                        text: "NAME:"
+                        pos_hint: {"center_x" : .07, "center_y" : .7}
+
+                    Label2:
+                        text: "EMAIL:"
+                        pos_hint: {"center_x" : .07, "center_y" : .55}
+
+                    Label2:
+                        text: "MESSAGE:"
+                        pos_hint: {"center_x" : .09, "center_y" : .4}
+
+                    TextInput:
+                        size_hint: .5,.08
+                        pos_hint: {"x": .05,"y":.585}
+
+                    TextInput:
+                        size_hint: .5,.08
+                        pos_hint: {"x": .05,"y":.437}
+
+                    TextInput:
+                        size_hint: .8,.20
+                        pos_hint: {"x": .05,"y":.165}
+
+
+
+
+
                     ExitButton
 
 
