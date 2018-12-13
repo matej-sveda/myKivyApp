@@ -1,0 +1,34 @@
+#:kivy 1.10.1
+<MainWidget>:
+
+    BoxLayout:
+        size: root.size
+        orientation: "vertical"
+
+        TabbedPanel:
+            do_default_tab: False
+
+            TabbedPanelItem:
+                text: "1st Tab"
+                BoxLayout:
+                    spacing: 50
+                    padding: 10
+                    Button:
+                        text: "Strana 1a"
+                    Button:
+                        text: "Strana 1b"
+
+            TabbedPanelItem:
+                text: "2nd Tab"
+                Label:
+                    text: "Strana 2"
+
+            TabbedPanelItem:
+                text: "3rd Tab"
+                Label:
+                    text: "Strana 3"
+
+            TabbedPanelItem:
+                text: "4th Tab"
+                Label:
+                    text: "Strana 4"
