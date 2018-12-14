@@ -14,6 +14,13 @@
     font_size: self.height
     size_hint: (1, 0.03)
 
+<CustomPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    Button:
+        text: "Agree"
+        on_press: root.dismiss()
+
 <MainWidget>:
 
     FloatLayout:
@@ -39,7 +46,7 @@
 
 
             TabbedPanelItem:
-                text: "Experience"
+                text: "Education"
                 FloatLayout:
                     spacing: 10
                     padding: 10
@@ -47,10 +54,11 @@
 
 
             TabbedPanelItem:
-                text: "3rd Tab"
+                text: "Experience"
                 FloatLayout:
                     spacing: 10
                     padding: 10
+
                     ExitButton
 
 
@@ -75,21 +83,37 @@
                         text: "MESSAGE:"
                         pos_hint: {"center_x" : .09, "center_y" : .4}
 
+                    Label2:
+                        text: "Consent to the processing of personal data"
+                        pos_hint: {"center_x" : .42, "center_y" : .090}
+
                     TextInput:
+                        id: name
                         size_hint: .5,.08
                         pos_hint: {"x": .05,"y":.585}
 
                     TextInput:
+                        id: email
                         size_hint: .5,.08
                         pos_hint: {"x": .05,"y":.437}
 
                     TextInput:
+                        id: msg_content
                         size_hint: .8,.20
                         pos_hint: {"x": .05,"y":.165}
 
+                    Button:
+                        size_hint: .15, .08
+                        text: "SEND"
+                        pos_hint: {"x": .05, "y":.05}
+                        on_press: root.send_msg()
 
-
-
+                    CheckBox:
+                        id: chb
+                        group: "check"
+                        size_hint: (.05, .05)
+                        pos_hint: {"x": .61, "y": .064}
+                        an_active: root.checkbox_active(self, self.active)
 
                     ExitButton
 
