@@ -19,7 +19,7 @@ class MainWidget(Widget):
 
     def open_consent_popup(self):
         consent_popup = CustomPopup()
-        consent_popup.title = "Your personal data consent is needed before sending a message."
+        consent_popup.title = "Your consent to personal data processing is needed."
         consent_popup.open()
 
     def open_missing_popup(self):
