@@ -1,11 +1,4 @@
 #:kivy 1.10.1
-<ExitButton@Button>
-    size_hint: .1, .1
-    pos_hint: {"x" : .9, "top" : .1}
-    on_press: app.exit()
-    text: "EXIT"
-    background_color: 1, 0, 0, 1
-
 <Label1@Label>
     font_size: self.height
     size_hint: (1, 0.07)
@@ -25,45 +18,52 @@
         text: "OK"
         on_press: root.dismiss()
 
+<ExitButton@Button>
+    size_hint: .1, .1
+    pos_hint: {"x" : .9, "top" : .1}
+    on_press: app.exit()
+    text: "EXIT"
+    background_color: 1, 0, 0, 1
+
 <MainWidget>:
 
     FloatLayout:
         size: root.size
-        orientation: "horizontal"
         canvas:
             Color:
-                rgb: .132, .232, .259      #Tabbed panel background
+                rgb: .132, .232, .259               #Tabbed panel background
             Rectangle:
                 size: self.size
 
         TabbedPanel:
             do_default_tab: False
-            background_color: (.132, .232, .259)  #Content background
-            background_image: ''
+            background_color: (.132, .232, .259)    #Content background
 
-            TabbedPanelItem:
+            TabbedPanelItem:                        #About page
                 text: "About"
                 FloatLayout:
-                    spacing: 10
-                    padding: 10
                     Label2:
-                        text: "Name: Matej Sveda\nAge: 27\nHobbies: Travelling\n                Coding\n                Friends\n                Movies"
-                        pos_hint: {"center_x" : .185, "center_y": .75}
+                        text: "Name: Matej Sveda"
+                        pos_hint: {"center_x" : .185, "center_y": .9}
+                    Label2:
+                        text: "Age: 27"
+                        pos_hint: {"center_x" : .095, "center_y": .82}
+                    Label2:
+                        text: "Hobbies: Travelling\n                Coding\n                Friends\n                Movies"
+                        pos_hint: {"center_x" : .184, "center_y": .65}
                     Image:
                         source: "skye.jpg"
-                        size_hint: .5, .5
-                        pos_hint: {"center_x": .672, "center_y": .73}
+                        size_hint: .52, .52
+                        pos_hint: {"center_x": .667, "center_y": .726}
                     Image:
                         source: "golden_gate.jpg"
                         size_hint: .85, .85
                         pos_hint: {"center_x": .5, "center_y": .3}
                     ExitButton
 
-            TabbedPanelItem:
+            TabbedPanelItem:                        #Education page
                 text: "Education"
                 FloatLayout:
-                    spacing: 10
-                    padding: 10
                     Label2:
                         text: "Gymnasium Sternberk - 2006 - 2010 \n\nVUT Brno - 2010 - 2017\n"
                         pos_hint: {"center_x" : .31, "center_y": .81}
@@ -80,11 +80,9 @@
                         pos_hint: {"center_x": .71, "center_y": .335}
                     ExitButton
 
-            TabbedPanelItem:
+            TabbedPanelItem:                        #Experience page
                 text: "Experience"
                 FloatLayout:
-                    spacing: 10
-                    padding: 10
                     Label2:
                         text: "SIKA CZ, s.r.o. - Technical sales representative"
                         pos_hint: {"center_x": .39, "center_y": .895}
@@ -119,47 +117,45 @@
                         pos_hint: {"center_x": .9, "center_y": .3}
                     ExitButton
 
-            TabbedPanelItem:
+            TabbedPanelItem:                        #Contact page
                 text: "Contact"
                 FloatLayout:
-                    spacing: 10
-                    padding: 10
                     Label1:
                         text: "CONTACT ME"
                         pos_hint: {"center_x" : .18, "center_y" : .9}
                     Label3:
                         text: "NAME:"
-                        pos_hint: {"center_x" : .07, "center_y" : .7}
-                    Label3:
-                        text: "EMAIL:"
-                        pos_hint: {"center_x" : .07, "center_y" : .55}
-                    Label3:
-                        text: "MESSAGE:"
-                        pos_hint: {"center_x" : .09, "center_y" : .4}
-                    Label3:
-                        text: "Consent to the processing of personal data"
-                        pos_hint: {"center_x" : .45, "center_y" : .090}
+                        pos_hint: {"center_x" : .07, "center_y" : .8}
                     TextInput:
                         id: name
                         size_hint: .5,.08
-                        pos_hint: {"x": .05,"y":.585}
+                        pos_hint: {"x": .05,"y":.685}
+                    Label3:
+                        text: "EMAIL:"
+                        pos_hint: {"center_x" : .07, "center_y" : .65}
                     TextInput:
                         id: email
                         size_hint: .5,.08
-                        pos_hint: {"x": .05,"y":.437}
+                        pos_hint: {"x": .05,"y":.537}
+                    Label3:
+                        text: "MESSAGE:"
+                        pos_hint: {"center_x" : .09, "center_y" : .5}
                     TextInput:
                         id: msg_content
                         size_hint: .8,.20
-                        pos_hint: {"x": .05,"y":.165}
+                        pos_hint: {"x": .05,"y":.265}
+                    Label3:
+                        text: "Consent to the processing of personal data"
+                        pos_hint: {"center_x" : .45, "center_y" : .16}
+                    CheckBox:
+                        size_hint: (.05, .05)
+                        pos_hint: {"x": .67, "y": .134}
+                        an_active: root.checkbox_active(self, self.active)
                     Button:
                         size_hint: .15, .08
                         text: "SEND"
-                        pos_hint: {"x": .05, "y":.05}
+                        pos_hint: {"x": .05, "y":.12}
                         on_press: root.send_msg()
-                    CheckBox:
-                        size_hint: (.05, .05)
-                        pos_hint: {"x": .67, "y": .064}
-                        an_active: root.checkbox_active(self, self.active)
                     ExitButton
 
 
